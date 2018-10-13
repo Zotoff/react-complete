@@ -3,21 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <title>React Start</title>
+    <link rel="" href="">
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    
+    <link rel="icon" type="image/png" href="/css/img/favicon.png" />
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        .car {
+            width: 300px;
+            height: 400px;
+            padding: 15px;
+            border: 1px solid grey;
+            box-shadow: 0px 2px 15px #000;
+        }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="text/babel">
 
-      ReactDOM.render(
+    /*Historical moment :) 13.10.2018, beginning the work with React*/
+      /* ReactDOM.render(
         <h1>Hello, test!</h1>,
         document.getElementById('root')
-      );
+      ); */
+    /*Historical moment :) 13.10.2018, beginning the work with React*/
 
+    function Car(props) {
+        return (
+            <div className="car"> //className потому что слово class является зарезервированным в JS
+                <h3>{props.name}</h3>
+                <p>{props.year}</p>
+            </div>
+        )
+    }
+
+    const App = (
+        <div>
+            <Car name="Ford" year="2017"/>
+            <Car name="Audi" year="2017"/>
+            <Car name="Mazda" year="2017"/>
+        </div>
+    )
+
+    ReactDOM.render(
+        App, //первый параметр - имя компонента, должно совпадать с именем функции
+        document.querySelector('#root')
+    )
     </script>
     <!--
       Note: this page is a great way to try React but it's not suitable for production.
